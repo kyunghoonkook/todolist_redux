@@ -9,12 +9,7 @@ function Form() {
   // console.log(todos);
   const todos = useSelector((state) => state.todos.todos);
   const dispatch = useDispatch();
-  const [todo, setTodo] = useState({
-    id: 0,
-    title: "",
-    body: "",
-    isDone: false,
-  });
+  const [todo, setTodo] = useState({});
   const changeHandler = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
     setTodo({
@@ -35,12 +30,10 @@ function Form() {
       addTodo({
         ...todo,
         id: todos[todos.length - 1]?.id + 1 || 0,
-        title: todo.title,
-        body: todo.body,
       })
     );
     setTodo({
-      id: 0,
+      id: "",
       title: "",
       body: "",
       isDone: false,

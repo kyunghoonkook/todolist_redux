@@ -6,6 +6,7 @@ const TOGGLE_STATUS_TODO = "TOGGLE_STATUS_TODO";
 
 // initial state
 const initialState = {
+  // 숫자면 오류..
   todos: [
     {
       id: "1",
