@@ -30,6 +30,8 @@ function Form() {
       addTodo({
         ...todo,
         id: todos[todos.length - 1]?.id + 1 || 0,
+        title: todo.title,
+        body: todo.body,
       })
     );
     setTodo({

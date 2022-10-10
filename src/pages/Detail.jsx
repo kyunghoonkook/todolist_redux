@@ -7,13 +7,14 @@ import { getTodoByID } from "../redux/modules/todos";
 const Detail = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todos.todo);
-
+  // const todos = useSelector((state) => state.todo.todo);
   // 특정 id의 콘텐츠를 받아오기
   const { id } = useParams();
 
   //  title, body;
   const navigate = useNavigate();
-  console.log("todasasdd", todo);
+  console.log("to", todo);
+  // console.log("t", todos);
 
   useEffect(() => {
     dispatch(getTodoByID(id));
