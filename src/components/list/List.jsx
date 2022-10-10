@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, toggleStatusTodo } from "../../redux/modules/todos.js";
+import { deleteTodo, toggleStatusTodo } from "../../redux/modules/todoList";
 import { Link } from "react-router-dom";
 
 const List = () => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state) => state.todoList.todos);
 
   const DeleteTodo = (id) => {
     dispatch(deleteTodo(id));
@@ -107,7 +107,7 @@ const StListWrapper = styled.div`
 const StTodoContainer = styled.div`
   width: 270px;
   min-height: 150px;
-  border: 3px solid #5c695c;
+  border: 3px solid #73b072;
   border-radius: 12px;
   padding: 15px 24px 24px 24px;
 `;
@@ -115,6 +115,21 @@ const StTodoContainer = styled.div`
 const StLink = styled(Link)`
   text-decoration: none;
   color: #232323;
+  position: relative;
+  ::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    background-color: #73b072;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0%;
+  }
+  :hover::after {
+    width: 10%;
+  }
 `;
 
 const StTextWrap = styled.div`
@@ -137,4 +152,11 @@ const StButton = styled.button`
   background-color: ${({ backgrounColor }) => backgrounColor};
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    background-color: #fff;
+    border: 1px solid ${({ backgrounColor }) => backgrounColor};
+    transition: all 0.5s;
+    color: #232323;
+  }
 `;

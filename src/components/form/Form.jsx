@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuid } from "uuid";
-import { addTodo } from "../../redux/modules/todos";
+// import { v4 as uuid } from "uuid";
+import { addTodo } from "../../redux/modules/todoList";
 
 function Form() {
   // const id = uuid();
   // console.log(todos);
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state) => state.todoList.todos);
   const dispatch = useDispatch();
   const [todo, setTodo] = useState({});
   const changeHandler = (e) => {
@@ -17,6 +17,7 @@ function Form() {
       [name]: value, // name 키를 가진 값을 value 로 설정
     });
   };
+  console.log(todos[1]);
   // const changeStyle = () => {
   //   setStyle("add-form-change");
   // };
@@ -32,6 +33,7 @@ function Form() {
         id: todos[todos.length - 1]?.id + 1 || 0,
         title: todo.title,
         body: todo.body,
+        isDone: false,
       })
     );
     setTodo({
@@ -57,7 +59,7 @@ function Form() {
           className="add-input"
           name="title"
           onChange={changeHandler}
-          value={todo.title}
+          value={todo.title || ""}
         />
         <StFormLabel htmlFor="body">내용</StFormLabel>
         <StAddInput
@@ -66,7 +68,7 @@ function Form() {
           className="add-input"
           name="body"
           onChange={changeHandler}
-          value={todo.body}
+          value={todo.body || ""}
         />
         <StAddButton type="submit">추가하기</StAddButton>
       </StInputGroupdiv>

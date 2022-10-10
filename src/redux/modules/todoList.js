@@ -9,14 +9,14 @@ const initialState = {
   // 숫자면 오류..
   todos: [
     {
-      id: "1",
+      id: 1,
       title: "초기",
       body: "초기",
       isDone: false,
     },
   ],
   todo: {
-    id: "0",
+    id: 0,
     title: "",
     body: "",
     isDone: false,
@@ -58,7 +58,7 @@ export const getTodoByID = (payload) => {
 // **리듀서란, 변화를 일으키는 `함수`입니다.**
 // 자 무슨말인지 모르시겠죠 ? 괜찮습니다...........
 
-const todos = (state = initialState, action) => {
+const todoList = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -84,13 +84,14 @@ const todos = (state = initialState, action) => {
     case GET_TODO_BY_ID:
       return {
         ...state,
-        todo: state.todos.find((todo) => {
-          return todo.id === action.payload;
-        }),
+        todo: {
+          // parseInt로 덮어줘서 타입 같게 해줘야 id숫자로 쓸 수 있음.
+          ...state.todos.find((todo) => todo.id === parseInt(action.payload)),
+        },
       };
     default:
       return state;
   }
 };
 
-export default todos;
+export default todoList;
