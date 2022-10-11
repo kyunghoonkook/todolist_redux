@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { v4 as uuid } from "uuid";
 import { addTodo } from "../../redux/modules/todoList";
 
 function Form() {
   // const id = uuid();
   // console.log(todos);
-  const todos = useSelector((state) => state.todoList.todos);
+  // const todos = useSelector((state) => state.todoList.todos);
   const dispatch = useDispatch();
   const [todo, setTodo] = useState({});
   const changeHandler = (e) => {
@@ -27,24 +27,11 @@ function Form() {
     if (todo.title === "" || todo.body === "") return;
 
     //id: todos[todos.length - 1]?.id + 1 || 0
-    dispatch(
-      addTodo({
-        ...todo,
-        id: todos[todos.length - 1]?.id + 1 || 0,
-        title: todo.title,
-        body: todo.body,
-        isDone: false,
-      })
-    );
-    setTodo({
-      id: "",
-      title: "",
-      body: "",
-      isDone: false,
-    });
+    dispatch(addTodo(todo));
+    setTodo({});
   };
   // console.log("todos", todos);
-  // console.log("todo", todo);
+  console.log("todo", todo);
   // const clickHandler = () => {
   //   handleAddToDo();
   //   changeStyle();

@@ -24,10 +24,10 @@ const initialState = {
 };
 // Action Creator Todo추가
 // 액션 생성 함수는 액션에 필요한 추가 데이터를 모두 payload
-export const addTodo = (payload) => {
+export const addTodo = (todo) => {
   return {
     type: ADD_TODO,
-    payload,
+    todo,
   };
 };
 
@@ -63,7 +63,14 @@ const todoList = (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, action.payload],
+        todos: [
+          ...state.todos,
+          {
+            ...action.todo,
+            id: state.todos[state.todos.length - 1]?.id + 1 || 0,
+            isDone: false,
+          },
+        ],
       };
 
     case DELETE_TODO:

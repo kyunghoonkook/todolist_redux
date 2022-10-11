@@ -7,6 +7,7 @@ import { getTodoByID } from "../redux/modules/todoList";
 const Detail = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todoList.todo);
+  console.log(todo);
   // const todos = useSelector((state) => state.todo.todo);
   // 특정 id의 콘텐츠를 받아오기
   const { id } = useParams();
