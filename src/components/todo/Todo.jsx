@@ -78,22 +78,27 @@ const StButton = styled.button`
   color: #fff;
   height: 40px;
   width: 120px;
-  background-color: ${({ backgrounColor }) => backgrounColor};
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.5s;
   &:hover {
     background-color: #fff;
-    border: 1px solid ${({ backgrounColor }) => backgrounColor};
     transition: all 0.5s;
     color: #232323;
   }
 `;
 
+// 오버라이딩
 const RedButton = styled(StButton)`
-  background-color: "#ff867c";
+  background-color: #ff867c;
+  &:hover {
+    border: 1px solid #ff867c;
+  }
 `;
 
 const GreenButton = styled(StButton)`
-  background-color: "#73b072";
+  background-color: #73b072;
+  &:hover {
+    border: 1px solid #73b072;
+  }
 `;
