@@ -17,7 +17,7 @@ function Form() {
       [name]: value, // name 키를 가진 값을 value 로 설정
     });
   };
-  console.log(todos[1]);
+  // console.log(todos[1]);
   // const changeStyle = () => {
   //   setStyle("add-form-change");
   // };
@@ -56,7 +56,6 @@ function Form() {
         <StAddInput
           id="title"
           type="text"
-          className="add-input"
           name="title"
           onChange={changeHandler}
           value={todo.title || ""}
@@ -65,7 +64,6 @@ function Form() {
         <StAddInput
           id="body"
           type="text"
-          className="add-input"
           name="body"
           onChange={changeHandler}
           value={todo.body || ""}
