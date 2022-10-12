@@ -66,9 +66,15 @@ const StDiv = styled.div`
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  position: relative;
+  bottom: 0;
+  transition: all 0.5s;
 
   &:hover {
     box-shadow: 0 8px 35px rgb(0 0 0 / 15%);
+    bottom: 1%;
+    transition: all 0.5s;
+    border: 2px solid #ff867c;
   }
   ::after {
     content: "";
@@ -79,17 +85,42 @@ const StDiv = styled.div`
     left: -185%;
     top: -185%;
     background-color: #ff867c;
-    transition: all 1.5s;
+    transition: all 3s;
     transform: rotate(35deg);
   }
   &:hover::after {
-    background-color: #ff867c;
+    background: rgb(254, 254, 254);
+    background: linear-gradient(
+      90deg,
+      rgba(254, 254, 254, 1) 0%,
+      rgba(255, 134, 124, 1) 100%
+    );
     left: -20%;
     top: -20%;
+    transition: all 3s;
+  }
+  ::before {
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    right: -135%;
+    top: -185%;
+    background-color: #ffc4c4;
+    transition: all 3s;
+    transform: rotate(35deg);
+  }
+
+  &:hover::before {
+    background-color: #ff867c;
+    right: -20%;
+    top: -20%;
+    transition: all 3s;
   }
   &:hover h1,
   &:hover main {
-    color: #fff;
+    color: #232323;
     transition: all 0.5s;
   }
 `;
