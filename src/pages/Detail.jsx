@@ -66,6 +66,10 @@ const StDiv = styled.div`
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 8px 35px rgb(0 0 0 / 15%);
+  }
   ::after {
     content: "";
     display: block;

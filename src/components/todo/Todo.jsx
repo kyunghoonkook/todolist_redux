@@ -39,6 +39,13 @@ const StTodoContainer = styled.div`
   border: 3px solid #73b072;
   border-radius: 12px;
   padding: 15px 24px 24px 24px;
+  transition: 0.5s;
+  position: relative;
+  bottom: 0;
+  &:hover {
+    box-shadow: 0 8px 22px rgb(0 0 0 / 15%);
+    bottom: 2.5%;
+  }
 `;
 
 const StLink = styled(Link)`
