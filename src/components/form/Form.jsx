@@ -28,7 +28,7 @@ function Form() {
     if (todo.title === "" || todo.body === "") return;
 
     //id: todos[todos.length - 1]?.id + 1 || 0
-    dispatch(addTodo());
+    dispatch(addTodo({ ...todo }));
     setTodo({});
   };
   // console.log("todos", todos);
@@ -46,7 +46,7 @@ function Form() {
           type="text"
           name="title"
           onChange={changeHandler}
-          value={todo.title}
+          value={todo.title || ""}
         />
         <StFormLabel htmlFor="body">내용</StFormLabel>
         <StAddInput
@@ -54,7 +54,7 @@ function Form() {
           type="text"
           name="body"
           onChange={changeHandler}
-          value={todo.body}
+          value={todo.body || ""}
         />
         <StAddButton type="submit">추가하기</StAddButton>
       </StInputGroupdiv>
