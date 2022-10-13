@@ -23,15 +23,16 @@ function Form() {
   // };
 
   const handleAddToDo = (e) => {
+    console.log("todo", todo.title);
     e.preventDefault();
     if (todo.title === "" || todo.body === "") return;
 
     //id: todos[todos.length - 1]?.id + 1 || 0
-    dispatch(addTodo(todo));
+    dispatch(addTodo());
     setTodo({});
   };
   // console.log("todos", todos);
-  console.log("todo", todo);
+
   // const clickHandler = () => {
   //   handleAddToDo();
   //   changeStyle();
@@ -45,7 +46,7 @@ function Form() {
           type="text"
           name="title"
           onChange={changeHandler}
-          value={todo.title || ""}
+          value={todo.title}
         />
         <StFormLabel htmlFor="body">내용</StFormLabel>
         <StAddInput
@@ -53,7 +54,7 @@ function Form() {
           type="text"
           name="body"
           onChange={changeHandler}
-          value={todo.body || ""}
+          value={todo.body}
         />
         <StAddButton type="submit">추가하기</StAddButton>
       </StInputGroupdiv>

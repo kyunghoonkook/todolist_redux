@@ -15,19 +15,14 @@ const initialState = {
       isDone: false,
     },
   ],
-  todo: {
-    id: 0,
-    title: "",
-    body: "",
-    isDone: false,
-  },
+  todo: {},
 };
 // Action Creator Todo추가
 // 액션 생성 함수는 액션에 필요한 추가 데이터를 모두 payload
-export const addTodo = (todo) => {
+export const addTodo = (payload) => {
   return {
     type: ADD_TODO,
-    todo,
+    payload,
   };
 };
 
@@ -64,9 +59,8 @@ const todoList = (state = initialState, action) => {
       return {
         ...state,
         todos: [
-          ...state.todos,
           {
-            ...action.todo,
+            ...action.payload,
             id: state.todos[state.todos.length - 1]?.id + 1 || 0,
             isDone: false,
           },

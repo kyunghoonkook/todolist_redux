@@ -7,7 +7,6 @@ import { getTodoByID } from "../redux/modules/todoList";
 const Detail = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todoList.todo);
-  console.log(todo);
   // const todos = useSelector((state) => state.todo.todo);
   // 특정 id의 콘텐츠를 받아오기
   const { id } = useParams();
@@ -64,7 +63,6 @@ const StDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   overflow: hidden;
   position: relative;
   bottom: 0;
@@ -114,8 +112,8 @@ const StDiv = styled.div`
 
   &:hover::before {
     background-color: #ff867c;
-    right: -20%;
-    top: -20%;
+    right: -10%;
+    top: -10%;
     transition: all 3s;
   }
   &:hover h1,
